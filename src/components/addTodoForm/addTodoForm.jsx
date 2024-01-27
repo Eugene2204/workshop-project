@@ -10,7 +10,6 @@ const handleAddTodoClick = () => {
     }
 
     setTodos ([...todos, { text: newTodoText, id: Date.now()}]);
-
     setNewTodoText("");
 }
 
