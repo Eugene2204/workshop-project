@@ -1,0 +1,36 @@
+.container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+border-radius: 12px;}
+
+.input {
+  display: inline-block;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 12px;
+  width: 400px;
+  background-color: snow;
+}
+
+.buttonAddTask {
+  border-radius: 12px;
+  color: white;
+  transition: .2s linear;
+  background: #0B63F6;
+}
+
+.buttonAddTask:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+  cursor: pointer;
+  color:black;
+}
+
+.input::placeholder {
+  color: black;
+  font-size: 16px;
+  font-weight: 30px;
+}
