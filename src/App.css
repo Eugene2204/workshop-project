@@ -1,12 +1,52 @@
 .App {
-  text-align: center;
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color:lightgray;
-  
+}
+
+.currentTasks {
+  background-color: coral;
+  font-size: 32px;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 80px;
+}
+
+.containerNav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
+  font-size: 18px;
 }
 
 .App-logo {
