@@ -1,27 +1,43 @@
 import { useState } from 'react';
-import styles from '../AddTodoForm.module.css';
+import styles from './AddTodoForm.module.css';
+import { postTodos } from './../../api.jsx';
 
-export const AddTodoForm = ({ todos, setTodos }) => {
-const[ newTodoText, setNewTodoText ] = useState("")
+export const AddTodoForm = ({ setTodos }) => {
 
-const handleAddTodoClick = () => {
+const[ newTodoText, setNewTodoText ] = useState("");
+const[isLoading, setIsLoading] = useState(false);
+const[addTodoError, setAddTodoError] = useState(null);
+
+const handleAddTodoClick = async () => {
+    
+try {
     if(!newTodoText) {
-        return;
-    }
+      return;
+    };
+      setIsLoading(true);
 
-    setTodos ([...todos, { text: newTodoText, id: Date.now()}]);
-    setNewTodoText("");
-}
+const newTodos = await postTodos(newTodoText);
+      setIsLoading(false);
+      setTodos (newTodos.todos);
+      setNewTodoText("");
+  } catch (error) {
+      setAddTodoError(error.message);
+      setIsLoading(false);
+  }
+};
 
     return (
+        <>
         <div className={styles.container}>
-            <div>
+          <div>
           <input className={styles.input} placeholder="Введите вашу задачу" value={newTodoText}
           onChange={(event) => {
               setNewTodoText(event.target.value);
           }}/>
           </div>
-          <button className={styles.buttonAddTask} onClick={handleAddTodoClick}>Добавить задачу</button>   
+          <button className={styles.buttonAddTask} disabled={isLoading} onClick={handleAddTodoClick}>{isLoading ? 'Задача добавляется...' : 'Добавить задачу'}</button>
         </div>
+        <p className={styles.todoError}>{addTodoError}</p>
+        </>
     )
-} 
+};

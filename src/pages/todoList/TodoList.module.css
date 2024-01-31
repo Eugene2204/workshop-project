@@ -1,20 +1,16 @@
-.todo-list {
-    background-color:dimgray;
-    
+.todoList {
+    background-color:lightgray; 
+    height: 100vw;
 }
 
 .titleTodoList {
-    height: 100px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 12px;
     box-sizing: border-box;
     font-size: 50px;
-}
-
-.titleTextTodoList {
-    font-size: 30px;
 }
 
 .todoListItems {
@@ -24,13 +20,18 @@
 
 .addedTask {
     display: flex;
-    flex-direction: row;
     font-size: 20px;
-    justify-content: space-between;
     padding-top: 15px;
     padding-bottom: 10px;
-    height: 100%;
-    padding-right: 10px;
+    height: 44px;
+    width: 500px;
+    gap: 12px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.addedTask:hover {
+    background-color: coral;
 }
 
 .buttonDelet {
